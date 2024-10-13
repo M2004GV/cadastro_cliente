@@ -10,17 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Send notification email
+      - name: Send Notification
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.gmail.com # Altere se usar outro serviço de e-mail
-          server_port: 587
-          username: ${{ secrets.EMAIL_USERNAME }} # Adicione seu e-mail como segredo
-          password: ${{ secrets.EMAIL_PASSWORD }} # Adicione sua senha de e-mail como segredo
-          subject: 'Novo Push para o Repositório!'
-          body: 'Um novo push foi feito no branch main do repositório ${GITHUB_REPOSITORY}.'
-          to: 'seu-email@exemplo.com' # Substitua pelo seu e-mail
-          from: 'seu-email@exemplo.com' # Substitua pelo seu e-mail
+          server_address: smtp.your-email-provider.com  # Altere para o servidor SMTP que você está usando
+          server_port: 587  # Altere para a porta do seu servidor SMTP
+          username: ${{ secrets.EMAIL_USERNAME }}  # Segredo para o e-mail
+          password: ${{ secrets.EMAIL_PASSWORD }}  # Segredo para a senha
+          subject: 'Novo Push no Repositório'
+          body: 'Um novo push foi feito no repositório.'
+          to: 'seu-email@exemplo.com'  # O e-mail para o qual você deseja enviar a notificação
+          from: ${{ secrets.EMAIL_USERNAME }}  # E-mail do remetente
