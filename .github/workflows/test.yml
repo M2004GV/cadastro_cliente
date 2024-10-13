@@ -1,7 +1,7 @@
 name: Test Project
 
 on:
-  pull-request:
+  pull_request:
     branches:
       - main
 
@@ -11,10 +11,16 @@ jobs:
     container:
       image: node:20
     steps:
-      -users: action/checkout@v3
-      with:
-        node-version: 20
-        -run: npm ci
-        -run: npm test
-        -run: npm build
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: Run Tests
+        run: npm test
+        
+      - name: Build Project
+        run: npm build
+
 
