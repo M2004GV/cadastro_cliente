@@ -100,7 +100,7 @@ Dentre as seis funcionalidades disponíveis, temos:
 
 
 ## Ícones das imagens
-- Sobre os ícones das imagens, eles foram tirados do [FLATICON](https://www.flaticon.com/)
+- Os ícones das imagens da tela principla foram tirados do [FLATICON](https://www.flaticon.com/)
 
 
 ## Melhorias Futuras
