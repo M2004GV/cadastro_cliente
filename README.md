@@ -17,7 +17,7 @@ Este projeto é um sistema de cadastro de clientes simples desenvolvido em **Jav
 
 - **Java**: Linguagem de programação principal.
 - **Swing**: Biblioteca para criação da interface gráfica.
-- 
+
 ## Uso
 
 O sistema oferece seis funcionalidades principais:
