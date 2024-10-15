@@ -33,77 +33,72 @@ O sistema oferece seis funcionalidades principais:
 
 Abaixo estão algumas capturas de tela que ilustram as principais funcionalidades do sistema.
 
-### Cadastro de Cliente
-
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-    <div style="text-align: center;">
-        <img src="screenshots/cadastrarcliente.png" alt="Cadastro de Cliente" width="300" style="border-radius: 10px; box-shadow: 2px 2px 12px rgba(0,0,0,0.1);"/>
-        <p><strong>Cadastro de Cliente</strong></p>
-    </div>
-    <div style="text-align: center;">
-        <img src="screenshots/cadastrado.png" alt="Cliente Cadastrado" width="300" style="border-radius: 10px; box-shadow: 2px 2px 12px rgba(0,0,0,0.1);"/>
-        <p><strong>Cliente Cadastrado</strong></p>
-    </div>
-    <div style="text-align: center;">
-        <img src="screenshots/errocadastro.png" alt="Erro no Cadastro" width="300" style="border-radius: 10px; box-shadow: 2px 2px 12px rgba(0,0,0,0.1);"/>
-        <p><strong>Erro no Cadastro</strong></p>
-    </div>
-</div>
-
-### Consulta de Cliente
-
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-    <div style="text-align: center;">
-        <img src="screenshots/buscarcliente.png" alt="Buscar Cliente" width="300" style="border-radius: 10px; box-shadow: 2px 2px 12px rgba(0,0,0,0.1);"/>
-        <p><strong>Buscar Cliente</strong></p>
-    </div>
-    <div style="text-align: center;">
-        <img src="screenshots/consultanaoecontrada.png" alt="Consulta Não Encontrada" width="300" style="border-radius: 10px; box-shadow: 2px 2px 12px rgba(0,0,0,0.1);"/>
-        <p><strong>Consulta Não Encontrada</strong></p>
-    </div>
-</div>
-
-### Alteração de Dados
-
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-    <div style="text-align: center;">
-        <img src="screenshots/alterardados.png" alt="Alterar Dados" width="300" style="border-radius: 10px; box-shadow: 2px 2px 12px rgba(0,0,0,0.1);"/>
-        <p><strong>Alterar Dados</strong></p>
-    </div>
-</div>
-
-### Exclusão de Cliente
-
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-    <div style="text-align: center;">
-        <img src="screenshots/deletar.png" alt="Deletar Cliente" width="300" style="border-radius: 10px; box-shadow: 2px 2px 12px rgba(0,0,0,0.1);"/>
-        <p><strong>Deletar Cliente</strong></p>
-    </div>
-    <div style="text-align: center;">
-        <img src="screenshots/deletado.png" alt="Cliente Deletado" width="300" style="border-radius: 10px; box-shadow: 2px 2px 12px rgba(0,0,0,0.1);"/>
-        <p><strong>Cliente Deletado</strong></p>
-    </div>
-</div>
-
-### Listagem de Clientes
-
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-    <div style="text-align: center;">
-        <img src="screenshots/listarclientes.png" alt="Listar Clientes" width="300" style="border-radius: 10px; box-shadow: 2px 2px 12px rgba(0,0,0,0.1);"/>
-        <p><strong>Listar Clientes</strong></p>
-    </div>
-</div>
-
-### Saída do Sistema
-
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-    <div style="text-align: center;">
-        <img src="screenshots/sair.png" alt="Sair do Sistema" width="300" style="border-radius: 10px; box-shadow: 2px 2px 12px rgba(0,0,0,0.1);"/>
-        <p><strong>Sair do Sistema</strong></p>
-    </div>
-</div>
-
-
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/telaprincipal.png" alt="Tela Principal" width="300"/>
+      <br/>
+      <strong>Tela Principal</strong>
+    </td>
+    <td align="center">
+      <img src="screenshots/cadastrarcliente.png" alt="Cadastro de Cliente" width="300"/>
+      <br/>
+      <strong>Cadastro de Cliente</strong>
+    </td>
+    <td align="center">
+      <img src="screenshots/cadastrado.png" alt="Cliente Cadastrado" width="300"/>
+      <br/>
+      <strong>Cliente Cadastrado</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="screenshots/errocadastro.png" alt="Erro no Cadastro" width="300"/>
+      <br/>
+      <strong>Erro no Cadastro</strong>
+    </td>
+    <td align="center">
+      <img src="screenshots/buscarcliente.png" alt="Buscar Cliente" width="300"/>
+      <br/>
+      <strong>Buscar Cliente</strong>
+    </td>
+    <td align="center">
+      <img src="screenshots/consultanaoecontrada.png" alt="Consulta Não Encontrada" width="300"/>
+      <br/>
+      <strong>Consulta Não Encontrada</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="screenshots/alterardados.png" alt="Alterar Dados" width="300"/>
+      <br/>
+      <strong>Alterar Dados</strong>
+    </td>
+    <td align="center">
+      <img src="screenshots/deletar.png" alt="Deletar Cliente" width="300"/>
+      <br/>
+      <strong>Deletar Cliente</strong>
+    </td>
+    <td align="center">
+      <img src="screenshots/deletado.png" alt="Cliente Deletado" width="300"/>
+      <br/>
+      <strong>Cliente Deletado</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="screenshots/listarclientes.png" alt="Listar Clientes" width="300"/>
+      <br/>
+      <strong>Listar Clientes</strong>
+    </td>
+    <td align="center">
+      <img src="screenshots/sair.png" alt="Sair do Sistema" width="300"/>
+      <br/>
+      <strong>Sair do Sistema</strong>
+    </td>
+    <td></td> <!-- Célula vazia para completar a última linha -->
+  </tr>
+</table>
 
 ## Ícones das Imagens
 
