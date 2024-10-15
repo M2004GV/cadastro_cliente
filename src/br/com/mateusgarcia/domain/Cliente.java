@@ -1,102 +1,91 @@
 package br.com.mateusgarcia.domain;
 
-import java.util.Objects;
-
 public class Cliente {
-    
     private String nome;
-    private Long cpf;
-    private Long tel;
+    private String cpf; // Certifique-se de que é String
+    private String telefone;
     private String endereco;
-    private Integer numero;
+    private String numero;
     private String cidade;
     private String estado;
 
-    public Cliente(String nome, String cpf, String tel, String endereco, String num, String cidade, String estado) {
-        this.nome = nome.trim();
-        this.cpf = Long.valueOf(cpf.trim());
-        this.tel = Long.valueOf(tel.trim());
-        this.endereco = endereco.trim();
-        this.numero = Integer.valueOf(num.trim());
-        this.cidade = cidade.trim();
-        this.estado = estado.trim();
+    public Cliente(String nome, String cpf, String telefone, String endereco, String numero, String cidade, String estado) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.numero = numero;
+        this.cidade = cidade;
+        this.estado = estado;
     }
 
-    // Getters and Setters
+    // Getters e Setters
+
     public String getNome() {
         return nome;
     }
-    
+
     public void setNome(String nome) {
-        this.nome = nome.trim();
+        this.nome = nome;
     }
 
-    public Long getCpf() {
+    public String getCpf() {
         return cpf;
     }
-    
-    public void setCpf(Long cpf) {
+
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public Long getTel() {
-        return tel;
+    public String getTelefone() {
+        return telefone;
     }
-    
-    public void setTel(Long tel) {
-        this.tel = tel;
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getEndereco() {
-        return endereco; 
-    }
-    
-    public void setEndereco(String endereco) {
-        this.endereco = endereco.trim();
+        return endereco;
     }
 
-    public Integer getNumero() {
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getNumero() {
         return numero;
     }
-    
-    public void setNumero(Integer numero) {
+
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
     public String getCidade() {
         return cidade;
     }
-    
+
     public void setCidade(String cidade) {
-        this.cidade = cidade.trim();
+        this.cidade = cidade;
     }
 
     public String getEstado() {
         return estado;
     }
-    
+
     public void setEstado(String estado) {
-        this.estado = estado.trim();
+        this.estado = estado;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Cliente cliente = (Cliente) obj;
-        return Objects.equals(cpf, cliente.cpf);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(cpf);
-    }
-
+    // Método toString para exibir informações do cliente
     @Override
     public String toString() {
-        return "Cliente{" +
-                "nome='" + nome + '\'' +
-                ", cpf=" + cpf +
-                '}';
+        return "Nome: " + nome +
+               "\nCPF: " + cpf +
+               "\nTelefone: " + telefone +
+               "\nEndereço: " + endereco +
+               "\nNúmero: " + numero +
+               "\nCidade: " + cidade +
+               "\nEstado: " + estado;
     }
 }

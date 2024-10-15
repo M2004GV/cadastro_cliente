@@ -1,125 +1,129 @@
 package br.com.mateusgarcia;
 
 import javax.swing.*;
-import javax.swing.text.MaskFormatter;
-
 import br.com.mateusgarcia.dao.ClienteMapDAO;
 import br.com.mateusgarcia.dao.IClienteDAO;
 import br.com.mateusgarcia.domain.Cliente;
 
 import java.awt.*;
-import java.text.ParseException;
 
 public class App {
+
     private static IClienteDAO iClienteDAO;
 
-    public static void main(String[] args) {
+    public static void main(String args[]) {
         iClienteDAO = new ClienteMapDAO();
 
         JFrame frame = new JFrame("Cadastro de Clientes");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
-        frame.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.insets = new Insets(10, 10, 10, 10);
+        frame.setSize(600, 400); // Ajuste o tamanho conforme necessário
+        frame.setLayout(new BorderLayout());
 
-        String[] buttonLabels = {"Cadastrar Cliente", "Consultar Cliente", "Excluir Cliente", "Alterar Cliente", "Listar Clientes", "Sair"};
-        for (int i = 0; i < buttonLabels.length; i++) {
-            JButton button = new JButton(buttonLabels[i]);
-            button.addActionListener(e -> {
-                switch (button.getText()) {
-                    case "Cadastrar Cliente":
-                        cadastrar();
-                        break;
-                    case "Consultar Cliente":
-                        consultar();
-                        break;
-                    case "Excluir Cliente":
-                        excluir();
-                        break;
-                    case "Alterar Cliente":
-                        alterar();
-                        break;
-                    case "Listar Clientes":
-                        listarClientes();
-                        break;
-                    case "Sair":
-                        sair();
-                        break;
-                }
-            });
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(3, 2, 20, 20)); // 3 linhas, 2 colunas, com espaçamento de 20 pixels
+        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30)); // Margens internas
 
-            gbc.gridx = 0;
-            gbc.gridy = i;
-            gbc.weightx = 1.0;
-            gbc.weighty = 0.1;
-            frame.add(button, gbc);
-        }
+        // Usando um único ícone por botão
+        OvalButton registerButton = new OvalButton("images/register.png");
+        OvalButton searchButton = new OvalButton("images/search.png");
+        OvalButton deleteButton = new OvalButton("images/delete.png");
+        OvalButton editButton = new OvalButton("images/edit.png");
+        OvalButton listButton = new OvalButton("images/list.png");
+        OvalButton exitButton = new OvalButton("images/exit.png");
 
+        // Adicionando listeners para os botões
+        registerButton.addActionListener(e -> cadastrar());
+        searchButton.addActionListener(e -> consultar());
+        deleteButton.addActionListener(e -> excluir());
+        editButton.addActionListener(e -> alterar());
+        listButton.addActionListener(e -> listarClientes());
+        exitButton.addActionListener(e -> sair());
+
+        // Adicionando os botões ao painel
+        panel.add(registerButton);
+        panel.add(searchButton);
+        panel.add(deleteButton);
+        panel.add(editButton);
+        panel.add(listButton);
+        panel.add(exitButton);
+
+        frame.add(panel, BorderLayout.CENTER);
         frame.setVisible(true);
     }
 
     private static void cadastrar() {
         JPanel panel = new JPanel();
-        panel.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.insets = new Insets(10, 10, 10, 10);
-        
-        JTextField nomeField = new JTextField(15);
-        JTextField cpfField = new JFormattedTextField(createFormatter("###.###.###-##"));
-        JTextField telefoneField = new JFormattedTextField(createFormatter("(##) #####-####"));
-        JTextField enderecoField = new JTextField(15);
-        JTextField numeroField = new JTextField(5);
-        JTextField cidadeField = new JTextField(10);
-        JTextField estadoField = new JTextField(2);
+        panel.setLayout(new GridLayout(0, 2, 5, 5)); // Colunas com espaçamento reduzido
 
-        gbc.gridx = 0; gbc.gridy = 0; panel.add(new JLabel("Nome:"), gbc);
-        gbc.gridx = 1; panel.add(nomeField, gbc);
-        gbc.gridx = 0; gbc.gridy = 1; panel.add(new JLabel("CPF:"), gbc);
-        gbc.gridx = 1; panel.add(cpfField, gbc);
-        gbc.gridx = 0; gbc.gridy = 2; panel.add(new JLabel("Telefone:"), gbc);
-        gbc.gridx = 1; panel.add(telefoneField, gbc);
-        gbc.gridx = 0; gbc.gridy = 3; panel.add(new JLabel("Endereço:"), gbc);
-        gbc.gridx = 1; panel.add(enderecoField, gbc);
-        gbc.gridx = 0; gbc.gridy = 4; panel.add(new JLabel("Número:"), gbc);
-        gbc.gridx = 1; panel.add(numeroField, gbc);
-        gbc.gridx = 0; gbc.gridy = 5; panel.add(new JLabel("Cidade:"), gbc);
-        gbc.gridx = 1; panel.add(cidadeField, gbc);
-        gbc.gridx = 0; gbc.gridy = 6; panel.add(new JLabel("Estado:"), gbc);
-        gbc.gridx = 1; panel.add(estadoField, gbc);
+        JTextField nomeField = new JTextField();
+        JTextField cpfField = new JTextField();
+        JTextField telefoneField = new JTextField();
+        JTextField enderecoField = new JTextField();
+        JTextField numeroField = new JTextField();
+        JTextField cidadeField = new JTextField();
+        JTextField estadoField = new JTextField();
+
+        panel.add(new JLabel("Nome:"));
+        panel.add(nomeField);
+        panel.add(new JLabel("CPF:"));
+        panel.add(cpfField);
+        panel.add(new JLabel("Telefone:"));
+        panel.add(telefoneField);
+        panel.add(new JLabel("Endereço:"));
+        panel.add(enderecoField);
+        panel.add(new JLabel("Número:"));
+        panel.add(numeroField);
+        panel.add(new JLabel("Cidade:"));
+        panel.add(cidadeField);
+        panel.add(new JLabel("Estado:"));
+        panel.add(estadoField);
 
         int result = JOptionPane.showConfirmDialog(null, panel, "Cadastrar Cliente", JOptionPane.OK_CANCEL_OPTION);
         if (result == JOptionPane.OK_OPTION) {
-            // Implementar a lógica de cadastro
+            String[] dados = {
+                nomeField.getText(),
+                cpfField.getText(),
+                telefoneField.getText(),
+                enderecoField.getText(),
+                numeroField.getText(),
+                cidadeField.getText(),
+                estadoField.getText()
+            };
+            if (validarDados(dados)) {
+                // Remove pontos e hífen antes de criar o cliente
+                String cpf = dados[1].trim().replace(".", "").replace("-", "");
+                Cliente cliente = new Cliente(
+                    dados[0],
+                    cpf,
+                    dados[2],
+                    dados[3],
+                    dados[4],
+                    dados[5],
+                    dados[6]
+                );
+                try {
+                    iClienteDAO.adicionar(cliente);
+                    JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                } catch (IllegalArgumentException e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Dados inválidos!", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
         }
-    }
-
-    private static MaskFormatter createFormatter(String s) {
-        MaskFormatter formatter = null;
-        try {
-            formatter = new MaskFormatter(s);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return formatter;
     }
 
     private static void consultar() {
         String cpfStr = JOptionPane.showInputDialog(null, "Digite o CPF do cliente:", "Consultar", JOptionPane.INFORMATION_MESSAGE);
 
         if (cpfStr != null && !cpfStr.trim().isEmpty()) {
-            try {
-                long cpf = Long.parseLong(cpfStr.trim());
-                Cliente cliente = iClienteDAO.consultar(cpf);
-                if (cliente != null) {
-                    JOptionPane.showMessageDialog(null, "Cliente encontrado:\n" + cliente.toString(), "Consulta", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Cliente não encontrado.", "Consulta", JOptionPane.WARNING_MESSAGE);
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "CPF inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            // Remove pontos e hífen para padronizar
+            String cpf = cpfStr.trim().replace(".", "").replace("-", "");
+            Cliente cliente = iClienteDAO.consultar(cpf);
+            if (cliente != null) {
+                JOptionPane.showMessageDialog(null, "Cliente encontrado:\n" + cliente.toString(), "Consulta", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado.", "Consulta", JOptionPane.WARNING_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(null, "CPF não pode ser vazio.", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -133,14 +137,16 @@ public class App {
 
         if (dados != null && validarDados(dados.split(","))) {
             String[] campos = dados.split(",");
+            // Remove pontos e hífen antes de criar o cliente
+            String cpf = campos[1].trim().replace(".", "").replace("-", "");
             Cliente cliente = new Cliente(
-                campos[0],
-                campos[1],
-                campos[2],
-                campos[3],
-                campos[4],
-                campos[5],
-                campos[6]
+                campos[0].trim(),
+                cpf,
+                campos[2].trim(),
+                campos[3].trim(),
+                campos[4].trim(),
+                campos[5].trim(),
+                campos[6].trim()
             );
             boolean sucesso = iClienteDAO.alterar(cliente);
             if (sucesso) {
@@ -157,16 +163,13 @@ public class App {
         String cpfStr = JOptionPane.showInputDialog(null, "Digite o CPF do cliente a ser excluído:", "Excluir", JOptionPane.INFORMATION_MESSAGE);
 
         if (cpfStr != null && !cpfStr.trim().isEmpty()) {
-            try {
-                long cpf = Long.parseLong(cpfStr.trim());
-                boolean sucesso = iClienteDAO.excluir(cpf);
-                if (sucesso) {
-                    JOptionPane.showMessageDialog(null, "Cliente excluído com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Cliente não encontrado.", "Erro", JOptionPane.ERROR_MESSAGE);
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "CPF inválido!", "Erro", JOptionPane.ERROR_MESSAGE);
+            // Remove pontos e hífen para padronizar
+            String cpf = cpfStr.trim().replace(".", "").replace("-", "");
+            boolean sucesso = iClienteDAO.excluir(cpf);
+            if (sucesso) {
+                JOptionPane.showMessageDialog(null, "Cliente excluído com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado.", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(null, "CPF não pode ser vazio.", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -190,8 +193,9 @@ public class App {
     private static boolean validarDados(String[] dados) {
         if (dados.length != 7) return false;
         try {
-            Long.parseLong(dados[1].trim());
-            Long.parseLong(dados[2].trim());
+            // Remove caracteres de formatação e verifica se são números
+            Long.parseLong(dados[1].trim().replace(".", "").replace("-", ""));
+            Long.parseLong(dados[2].trim().replace("(", "").replace(")", "").replace("-", ""));
             Integer.parseInt(dados[4].trim());
         } catch (NumberFormatException e) {
             return false;
