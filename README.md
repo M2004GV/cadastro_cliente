@@ -6,8 +6,9 @@ Este projeto é um sistema de cadastro de clientes simples desenvolvido em Java 
 ## Instalação
 1. Clone o repositório: `git clone https://github.com/M2004GV/cadastro_cliente`
 2. Certifique de ter baixado as imagens e que os caminhos estejam corretos
-3. Abra o projeto no seu IDE.
-4. Execute a classe `App`.
+3. Certifique que tenham o `JDK` na sua máquina instalado; caso não tenha, instale na [Oracle_Java](https://www.oracle.com/java/technologies/downloads/)
+5. Abra o projeto no seu IDE.
+6. Execute a classe `App`.
 
 ## Uso
 Dentre as seis funcionalidades disponíveis, temos:
