@@ -10,7 +10,7 @@ Este projeto é um sistema de cadastro de clientes simples desenvolvido em Java 
 4. Execute a classe `App`.
 
 ## Uso
-<h1/>Dentre as seis funcionalidades disponíveis, temos<h1/>:
+Dentre as seis funcionalidades disponíveis, temos:
 - Clique em "Cadastrar" para adicionar um novo cliente.
 - Clique em "Consultar" para buscar um cliente pelo CPF.
 - Clique em "Alterar" para modificar os dados de um cliente.
