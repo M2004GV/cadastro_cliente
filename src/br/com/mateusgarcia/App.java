@@ -1,123 +1,109 @@
 package br.com.mateusgarcia;
 
-import java.awt.*;
 import javax.swing.*;
+import javax.swing.text.MaskFormatter;
+
 import br.com.mateusgarcia.dao.ClienteMapDAO;
 import br.com.mateusgarcia.dao.IClienteDAO;
 import br.com.mateusgarcia.domain.Cliente;
 
-public class App {
+import java.awt.*;
+import java.text.ParseException;
 
+public class App {
     private static IClienteDAO iClienteDAO;
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         iClienteDAO = new ClienteMapDAO();
 
         JFrame frame = new JFrame("Cadastro de Clientes");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 400);
-        frame.setLayout(new BorderLayout());
-
-        // Adicionando uma imagem de fundo
-        JLabel background = new JLabel(new ImageIcon("path/to/background.jpg"));
-        background.setLayout(new GridBagLayout());
-
-        // Usando GridBagLayout para melhor posicionamento
-        JPanel panel = new JPanel(new GridBagLayout());
+        frame.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.insets = new Insets(5, 5, 5, 5); // Espaçamento
+        gbc.insets = new Insets(10, 10, 10, 10);
 
-        JButton cadastrarButton = new JButton("Cadastrar Cliente", new ImageIcon("path/to/cadastrar-icon.png"));
-        JButton consultarButton = new JButton("Consultar Cliente", new ImageIcon("path/to/consultar-icon.png"));
-        JButton excluirButton = new JButton("Excluir Cliente", new ImageIcon("path/to/excluir-icon.png"));
-        JButton alterarButton = new JButton("Alterar Cliente", new ImageIcon("path/to/alterar-icon.png"));
-        JButton listarButton = new JButton("Listar Clientes", new ImageIcon("path/to/listar-icon.png"));
-        JButton sairButton = new JButton("Sair", new ImageIcon("path/to/sair-icon.png"));
+        String[] buttonLabels = {"Cadastrar Cliente", "Consultar Cliente", "Excluir Cliente", "Alterar Cliente", "Listar Clientes", "Sair"};
+        for (int i = 0; i < buttonLabels.length; i++) {
+            JButton button = new JButton(buttonLabels[i]);
+            button.addActionListener(e -> {
+                switch (button.getText()) {
+                    case "Cadastrar Cliente":
+                        cadastrar();
+                        break;
+                    case "Consultar Cliente":
+                        consultar();
+                        break;
+                    case "Excluir Cliente":
+                        excluir();
+                        break;
+                    case "Alterar Cliente":
+                        alterar();
+                        break;
+                    case "Listar Clientes":
+                        listarClientes();
+                        break;
+                    case "Sair":
+                        sair();
+                        break;
+                }
+            });
 
-        // Ações dos botões
-        cadastrarButton.addActionListener(e -> cadastrar());
-        consultarButton.addActionListener(e -> consultar());
-        excluirButton.addActionListener(e -> excluir());
-        alterarButton.addActionListener(e -> alterar());
-        listarButton.addActionListener(e -> listarClientes());
-        sairButton.addActionListener(e -> sair());
+            gbc.gridx = 0;
+            gbc.gridy = i;
+            gbc.weightx = 1.0;
+            gbc.weighty = 0.1;
+            frame.add(button, gbc);
+        }
 
-        // Adicionando botões ao painel com GridBagConstraints
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        panel.add(cadastrarButton, gbc);
-        gbc.gridy++;
-        panel.add(consultarButton, gbc);
-        gbc.gridy++;
-        panel.add(excluirButton, gbc);
-        gbc.gridy++;
-        panel.add(alterarButton, gbc);
-        gbc.gridy++;
-        panel.add(listarButton, gbc);
-        gbc.gridy++;
-        panel.add(sairButton, gbc);
-
-        // Adicionando o painel ao JLabel de fundo
-        background.add(panel);
-
-        frame.setContentPane(background);
         frame.setVisible(true);
     }
 
     private static void cadastrar() {
-        JPanel panel = new JPanel(new GridLayout(0, 2));
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(10, 10, 10, 10);
+        
+        JTextField nomeField = new JTextField(15);
+        JTextField cpfField = new JFormattedTextField(createFormatter("###.###.###-##"));
+        JTextField telefoneField = new JFormattedTextField(createFormatter("(##) #####-####"));
+        JTextField enderecoField = new JTextField(15);
+        JTextField numeroField = new JTextField(5);
+        JTextField cidadeField = new JTextField(10);
+        JTextField estadoField = new JTextField(2);
 
-        JTextField nomeField = new JTextField();
-        JTextField cpfField = new JTextField();
-        JTextField telefoneField = new JTextField();
-        JTextField enderecoField = new JTextField();
-        JTextField numeroField = new JTextField();
-        JTextField cidadeField = new JTextField();
-        JTextField estadoField = new JTextField();
-
-        panel.add(new JLabel("Nome:"));
-        panel.add(nomeField);
-        panel.add(new JLabel("CPF:"));
-        panel.add(cpfField);
-        panel.add(new JLabel("Telefone:"));
-        panel.add(telefoneField);
-        panel.add(new JLabel("Endereço:"));
-        panel.add(enderecoField);
-        panel.add(new JLabel("Número:"));
-        panel.add(numeroField);
-        panel.add(new JLabel("Cidade:"));
-        panel.add(cidadeField);
-        panel.add(new JLabel("Estado:"));
-        panel.add(estadoField);
+        gbc.gridx = 0; gbc.gridy = 0; panel.add(new JLabel("Nome:"), gbc);
+        gbc.gridx = 1; panel.add(nomeField, gbc);
+        gbc.gridx = 0; gbc.gridy = 1; panel.add(new JLabel("CPF:"), gbc);
+        gbc.gridx = 1; panel.add(cpfField, gbc);
+        gbc.gridx = 0; gbc.gridy = 2; panel.add(new JLabel("Telefone:"), gbc);
+        gbc.gridx = 1; panel.add(telefoneField, gbc);
+        gbc.gridx = 0; gbc.gridy = 3; panel.add(new JLabel("Endereço:"), gbc);
+        gbc.gridx = 1; panel.add(enderecoField, gbc);
+        gbc.gridx = 0; gbc.gridy = 4; panel.add(new JLabel("Número:"), gbc);
+        gbc.gridx = 1; panel.add(numeroField, gbc);
+        gbc.gridx = 0; gbc.gridy = 5; panel.add(new JLabel("Cidade:"), gbc);
+        gbc.gridx = 1; panel.add(cidadeField, gbc);
+        gbc.gridx = 0; gbc.gridy = 6; panel.add(new JLabel("Estado:"), gbc);
+        gbc.gridx = 1; panel.add(estadoField, gbc);
 
         int result = JOptionPane.showConfirmDialog(null, panel, "Cadastrar Cliente", JOptionPane.OK_CANCEL_OPTION);
         if (result == JOptionPane.OK_OPTION) {
-            String[] dados = {
-                nomeField.getText(),
-                cpfField.getText(),
-                telefoneField.getText(),
-                enderecoField.getText(),
-                numeroField.getText(),
-                cidadeField.getText(),
-                estadoField.getText()
-            };
-            if (validarDados(dados)) {
-                Cliente cliente = new Cliente(
-                    dados[0],
-                    dados[1],
-                    dados[2],
-                    dados[3],
-                    dados[4],
-                    dados[5],
-                    dados[6]
-                );
-                iClienteDAO.cadastrar(cliente);
-                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(null, "Dados inválidos!", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
+            // Implementar a lógica de cadastro
         }
+    }
+
+    private static MaskFormatter createFormatter(String s) {
+        MaskFormatter formatter = null;
+        try {
+            formatter = new MaskFormatter(s);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return formatter;
     }
 
     private static void consultar() {
