@@ -19,11 +19,40 @@ Dentre as seis funcionalidades disponíveis, temos:
 - Clique em "Sair" para fechar o aplicativo.
 
 ## Capturas de Tela
-![Tela Principal](screenshots/telaprincipal.png)
-*Tela Principal do Sistema*
 
-![Cadastro de Cliente](screenshots/cadastrarcliente.png)
-*Formulário de Cadastro de Cliente*
+### Tela Principal
+<img src="screenshots/telaprincipal.png" alt="Tela Principal" width="300"/>
+
+### Cadastro de Cliente
+<img src="screenshots/cadastrarcliente.png" alt="Cadastro de Cliente" width="300"/>
+
+### Alterar Dados
+<img src="screenshots/alterardados.png" alt="Alterar Dados" width="300"/>
+
+### Buscar Cliente
+<img src="screenshots/buscarcliente.png" alt="Buscar Cliente" width="300"/>
+
+### Cliente Cadastrado
+<img src="screenshots/cadastrado.png" alt="Cliente Cadastrado" width="300"/>
+
+### Consulta Não Encontrada
+<img src="screenshots/consultanaoencontrada.png" alt="Consulta Não Encontrada" width="300"/>
+
+### Cliente Deletado
+<img src="screenshots/deletado.png" alt="Cliente Deletado" width="300"/>
+
+### Deletar Cliente
+<img src="screenshots/deletar.png" alt="Deletar Cliente" width="300"/>
+
+### Erro no Cadastro
+<img src="screenshots/errocadastro.png" alt="Erro no Cadastro" width="300"/>
+
+### Listar Clientes
+<img src="screenshots/listarclientes.png" alt="Listar Clientes" width="300"/>
+
+### Sair do Sistema
+<img src="screenshots/sair.png" alt="Sair do Sistema" width="300"/>
+
 
 ## Ícones das imagens
 - Sobre os ícones das imagens, eles foram tirados do [FLATICON](https://www.flaticon.com/)
