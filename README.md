@@ -114,5 +114,6 @@ Os ícones de imagens das capturas de tela foram tirados da [FLATICON](https://w
 - Melhorar a Estética da Interface
 - Integrar um banco de dados (como MySQL ou SQLite)
 
+## Contato
 ---
 *Desenvolvido por [Mateus Garcia](https://github.com/M2004GV)*
