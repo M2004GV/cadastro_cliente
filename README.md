@@ -25,14 +25,13 @@ Dentre as seis funcionalidades disponíveis, temos:
 ![Cadastro de Cliente](screenshots/cadastrarcliente.png)
 *Formulário de Cadastro de Cliente*
 
+## Ícones das imagens
+- Sobre os ícones das imagens, eles foram tirados do [FLATICON](https://www.flaticon.com/)
+
 
 ## Melhorias Futuras
 - Implementar validação de dados em tempo real.
-- Adicionar exportação de dados para CSV ou Excel.
 - Melhorar a estética da interface.
 
 ## Contribuições
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.
-
-## Licença
-Este projeto está licenciado sob a MIT License.
