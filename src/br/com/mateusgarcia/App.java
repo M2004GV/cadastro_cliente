@@ -15,17 +15,27 @@ public class App {
 
         JFrame frame = new JFrame("Cadastro de Clientes");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 400);
-        frame.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        
-        JButton cadastrarButton = new JButton("Cadastrar Cliente");
-        JButton consultarButton = new JButton("Consultar Cliente");
-        JButton excluirButton = new JButton("Excluir Cliente");
-        JButton alterarButton = new JButton("Alterar Cliente");
-        JButton listarButton = new JButton("Listar Clientes");
-        JButton sairButton = new JButton("Sair");
+        frame.setSize(400, 400);
+        frame.setLayout(new BorderLayout());
 
+        // Adicionando uma imagem de fundo
+        JLabel background = new JLabel(new ImageIcon("path/to/background.jpg"));
+        background.setLayout(new GridBagLayout());
+
+        // Usando GridBagLayout para melhor posicionamento
+        JPanel panel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(5, 5, 5, 5); // Espaçamento
+
+        JButton cadastrarButton = new JButton("Cadastrar Cliente", new ImageIcon("path/to/cadastrar-icon.png"));
+        JButton consultarButton = new JButton("Consultar Cliente", new ImageIcon("path/to/consultar-icon.png"));
+        JButton excluirButton = new JButton("Excluir Cliente", new ImageIcon("path/to/excluir-icon.png"));
+        JButton alterarButton = new JButton("Alterar Cliente", new ImageIcon("path/to/alterar-icon.png"));
+        JButton listarButton = new JButton("Listar Clientes", new ImageIcon("path/to/listar-icon.png"));
+        JButton sairButton = new JButton("Sair", new ImageIcon("path/to/sair-icon.png"));
+
+        // Ações dos botões
         cadastrarButton.addActionListener(e -> cadastrar());
         consultarButton.addActionListener(e -> consultar());
         excluirButton.addActionListener(e -> excluir());
@@ -33,28 +43,25 @@ public class App {
         listarButton.addActionListener(e -> listarClientes());
         sairButton.addActionListener(e -> sair());
 
-        // Personalizando botões com um layout centralizado
-        gbc.insets = new Insets(10, 10, 10, 10);
+        // Adicionando botões ao painel com GridBagConstraints
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        frame.add(cadastrarButton, gbc);
+        panel.add(cadastrarButton, gbc);
+        gbc.gridy++;
+        panel.add(consultarButton, gbc);
+        gbc.gridy++;
+        panel.add(excluirButton, gbc);
+        gbc.gridy++;
+        panel.add(alterarButton, gbc);
+        gbc.gridy++;
+        panel.add(listarButton, gbc);
+        gbc.gridy++;
+        panel.add(sairButton, gbc);
 
-        gbc.gridy = 1;
-        frame.add(consultarButton, gbc);
+        // Adicionando o painel ao JLabel de fundo
+        background.add(panel);
 
-        gbc.gridy = 2;
-        frame.add(excluirButton, gbc);
-
-        gbc.gridy = 3;
-        frame.add(alterarButton, gbc);
-
-        gbc.gridy = 4;
-        frame.add(listarButton, gbc);
-
-        gbc.gridy = 5;
-        frame.add(sairButton, gbc);
-
+        frame.setContentPane(background);
         frame.setVisible(true);
     }
 
@@ -135,8 +142,8 @@ public class App {
 
     private static void alterar() {
         String dados = JOptionPane.showInputDialog(null,
-                "Digite os dados do cliente separados por vírgula, nesta ordem: Nome, CPF, Telefone, Endereço, Número, Cidade, Estado",
-                "Alteração", JOptionPane.INFORMATION_MESSAGE);
+            "Digite os dados do cliente separados por vírgula, nesta ordem: Nome, CPF, Telefone, Endereço, Número, Cidade, Estado",
+            "Alteração", JOptionPane.INFORMATION_MESSAGE);
 
         if (dados != null && validarDados(dados.split(","))) {
             String[] campos = dados.split(",");
@@ -185,7 +192,6 @@ public class App {
         Object[][] data = iClienteDAO.listar();
 
         JTable table = new JTable(data, columnNames);
-        table.setFillsViewportHeight(true);
         JScrollPane scrollPane = new JScrollPane(table);
         JOptionPane.showMessageDialog(null, scrollPane, "Lista de Clientes", JOptionPane.INFORMATION_MESSAGE);
     }
