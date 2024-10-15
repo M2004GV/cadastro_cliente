@@ -31,74 +31,38 @@ O sistema oferece seis funcionalidades principais:
 
 ## Capturas de Tela
 
-Abaixo estão algumas capturas de tela que ilustram as principais funcionalidades do sistema.
+### Tela Principal
+<img src="screenshots/telaprincipal.png" alt="Tela Principal" width="300"/>
 
-<table>
-  <tr>
-    <td align="center">
-      <img src="screenshots/telaprincipal.png" alt="Tela Principal" width="300"/>
-      <br/>
-      <strong>Tela Principal</strong>
-    </td>
-    <td align="center">
-      <img src="screenshots/cadastrarcliente.png" alt="Cadastro de Cliente" width="300"/>
-      <br/>
-      <strong>Cadastro de Cliente</strong>
-    </td>
-    <td align="center">
-      <img src="screenshots/cadastrado.png" alt="Cliente Cadastrado" width="300"/>
-      <br/>
-      <strong>Cliente Cadastrado</strong>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="screenshots/errocadastro.png" alt="Erro no Cadastro" width="300"/>
-      <br/>
-      <strong>Erro no Cadastro</strong>
-    </td>
-    <td align="center">
-      <img src="screenshots/buscarcliente.png" alt="Buscar Cliente" width="300"/>
-      <br/>
-      <strong>Buscar Cliente</strong>
-    </td>
-    <td align="center">
-      <img src="screenshots/consultanaoecontrada.png" alt="Consulta Não Encontrada" width="300"/>
-      <br/>
-      <strong>Consulta Não Encontrada</strong>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="screenshots/alterardados.png" alt="Alterar Dados" width="300"/>
-      <br/>
-      <strong>Alterar Dados</strong>
-    </td>
-    <td align="center">
-      <img src="screenshots/deletar.png" alt="Deletar Cliente" width="300"/>
-      <br/>
-      <strong>Deletar Cliente</strong>
-    </td>
-    <td align="center">
-      <img src="screenshots/deletado.png" alt="Cliente Deletado" width="300"/>
-      <br/>
-      <strong>Cliente Deletado</strong>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="screenshots/listarclientes.png" alt="Listar Clientes" width="300"/>
-      <br/>
-      <strong>Listar Clientes</strong>
-    </td>
-    <td align="center">
-      <img src="screenshots/sair.png" alt="Sair do Sistema" width="300"/>
-      <br/>
-      <strong>Sair do Sistema</strong>
-    </td>
-    <td></td> <!-- Célula vazia para completar a última linha -->
-  </tr>
-</table>
+### Cadastro de Cliente
+<img src="screenshots/cadastrarcliente.png" alt="Cadastro de Cliente" width="300"/>
+
+### Cliente Cadastrado
+<img src="screenshots/cadastrado.png" alt="Cliente Cadastrado" width="300"/>
+
+### Erro no Cadastro
+<img src="screenshots/errocadastro.png" alt="Erro no Cadastro" width="300"/>
+
+### Buscar Cliente
+<img src="screenshots/buscarcliente.png" alt="Buscar Cliente" width="300"/>
+
+### Consulta Não Encontrada
+<img src="screenshots/consultanaoecontrada.png" alt="Consulta Não Encontrada" width="300"/>
+
+### Alterar Dados
+<img src="screenshots/alterardados.png" alt="Alterar Dados" width="300"/>
+
+### Deletar Cliente
+<img src="screenshots/deletar.png" alt="Deletar Cliente" width="300"/>
+
+### Cliente Deletado
+<img src="screenshots/deletado.png" alt="Cliente Deletado" width="300"/>
+
+### Listar Clientes
+<img src="screenshots/listarclientes.png" alt="Listar Clientes" width="300"/>
+
+### Sair do Sistema
+<img src="screenshots/sair.png" alt="Sair do Sistema" width="300"/>
 
 ## Ícones das Imagens
 
